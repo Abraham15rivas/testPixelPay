@@ -2103,13 +2103,14 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     loadFieldsUpdate: function loadFieldsUpdate(data) {
-      this.update = data.id;
+      this.update = data;
       var me = this;
       var url = '/tareas/' + this.update;
       axios.get(url).then(function (response) {
         me.name = response.data.name;
         me.description = response.data.description;
         me.content = response.data.content;
+        me.status_id = response.data.status_id;
       })["catch"](function (error) {
         console.log(error);
       });

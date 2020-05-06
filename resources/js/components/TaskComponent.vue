@@ -150,21 +150,21 @@
                 });
             },
             loadFieldsUpdate(data){ 
-                this.update = data.id
+                this.update = data
                 var me = this;
                 var url = '/tareas/'+this.update;
                 axios.get(url).then(function (response) {
                     me.name = response.data.name;
                     me.description = response.data.description;
                     me.content = response.data.content;
-                    
+                    me.status_id = response.data.status_id;                    
                 })
                 .catch(function (error) {
                     console.log(error);
                 }); 
             },
             deleteTask(data){
-                var me =this;
+                var me = this;
                 var task_id = data.id
                 if (confirm('¿Seguro que deseas borrar esta tarea?')) {
                     axios.delete('/tareas/'+task_id

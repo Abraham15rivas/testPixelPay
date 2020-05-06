@@ -22,13 +22,13 @@ class TaskController extends Controller
         ]);        
     }
 
-    public function show(Task $task, $id)
+    public function show($id)
     {
         $task = Task::find($id);
         return $task;
     }
 
-    public function update(Request $request, Task $task)
+    public function update(Request $request)
     {
         $task = Task::findOrFail($request->id);
         $task->name = $request->name;
@@ -39,7 +39,7 @@ class TaskController extends Controller
         return $task;
     }
 
-    public function destroy(Task $task, $id)
+    public function destroy($id)
     {
         $task = Task::find($id);
         $task->delete(); 
